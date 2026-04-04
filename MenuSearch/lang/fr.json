@@ -1,0 +1,59 @@
+{
+  "tab_engines": "⚙ Moteurs",
+  "tab_add": "＋ Ajouter",
+  "tab_settings": "⚙ Paramètres",
+
+  "section_context_order": "Ordre du menu contextuel",
+  "btn_insert_separator": "＋ Insérer un séparateur",
+
+  "label_engine_name": "Nom du moteur",
+  "placeholder_engine_name": "ex. Google",
+  "label_search_url": "URL de recherche",
+  "placeholder_search_url": "https://www.google.com/search?q=",
+  "btn_add_engine": "＋ Ajouter le moteur",
+  "btn_from_library": "📚 Depuis la bibliothèque",
+
+  "export_desc": "Exportez votre liste de moteurs au format <strong>.json</strong> pour la sauvegarder ou la partager.",
+  "btn_export": "⬇ Exporter engines.json",
+  "import_desc": "Importez un fichier <strong>.json</strong> exporté précédemment. Cela <strong>remplacera</strong> votre liste actuelle.",
+  "btn_import": "⬆ Importer depuis JSON",
+
+  "settings_theme": "Thème",
+  "settings_theme_light": "Clair",
+  "settings_theme_dark": "Sombre",
+  "settings_language": "Langue",
+  "settings_import_export": "Importer / Exporter",
+  "settings_section_appearance": "Apparence",
+  "settings_section_language": "Langue & Région",
+
+  "library_title": "Bibliothèque de moteurs",
+  "library_search_placeholder": "Rechercher des moteurs…",
+  "library_loading": "Chargement de la bibliothèque…",
+  "library_no_results": "Aucun résultat pour",
+  "library_error": "Impossible de charger la bibliothèque.",
+  "btn_add": "Ajouter",
+  "btn_added": "Ajouté",
+
+  "empty_state": "Aucun moteur pour l'instant.<br>Ajoutez-en un depuis l'onglet Ajouter.",
+  "separator_label": "── SÉPARATEUR ──",
+
+  "toast_fill_fields": "Remplissez les deux champs",
+  "toast_engine_added": "Moteur ajouté ✓",
+  "toast_separator_added": "Séparateur ajouté",
+  "toast_exported": "Exporté ✓",
+  "toast_imported": "moteurs importés ✓",
+  "toast_invalid_json": "Fichier JSON invalide",
+  "toast_settings_saved": "Paramètres sauvegardés ✓",
+
+  "remove": "Supprimer",
+
+  "label_open_target": "Ouvrir dans",
+  "label_keyboard_shortcut": "Raccourci clavier",
+  "shortcut_optional": "(optionnel)",
+  "placeholder_shortcut": "Cliquez ici, puis appuyez sur les touches…",
+  "btn_add_url_row": "＋ Ajouter une autre URL (recherche groupée)",
+
+  "modal_title_edit_engine": "Modifier le moteur",
+  "btn_save_changes": "💾 Enregistrer",
+  "btn_cancel": "Annuler"
+}

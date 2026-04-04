@@ -1,0 +1,59 @@
+{
+  "tab_engines": "⚙ Engines",
+  "tab_add": "＋ Add",
+  "tab_settings": "⚙ Settings",
+
+  "section_context_order": "Context Menu Order",
+  "btn_insert_separator": "＋ Insert Separator",
+
+  "label_engine_name": "Engine Name",
+  "placeholder_engine_name": "e.g. Google",
+  "label_search_url": "Search URL",
+  "placeholder_search_url": "https://www.google.com/search?q=",
+  "btn_add_engine": "＋ Add Engine",
+  "btn_from_library": "📚 From Library",
+
+  "export_desc": "Export your current engine list as a <strong>.json</strong> file to back it up or share it.",
+  "btn_export": "⬇ Export engines.json",
+  "import_desc": "Import a previously exported <strong>.json</strong> file. This will <strong>replace</strong> your current list.",
+  "btn_import": "⬆ Import from JSON",
+
+  "settings_theme": "Theme",
+  "settings_theme_light": "Light",
+  "settings_theme_dark": "Dark",
+  "settings_language": "Language",
+  "settings_import_export": "Import / Export",
+  "settings_section_appearance": "Appearance",
+  "settings_section_language": "Language & Region",
+
+  "library_title": "Engine Library",
+  "library_search_placeholder": "Search engines…",
+  "library_loading": "Loading library…",
+  "library_no_results": "No results for",
+  "library_error": "Could not load library.",
+  "btn_add": "Add",
+  "btn_added": "Added",
+
+  "empty_state": "No engines yet.<br>Add one from the Add tab.",
+  "separator_label": "── SEPARATOR ──",
+
+  "toast_fill_fields": "Fill in both fields",
+  "toast_engine_added": "Engine added ✓",
+  "toast_separator_added": "Separator added",
+  "toast_exported": "Exported ✓",
+  "toast_imported": "engines imported ✓",
+  "toast_invalid_json": "Invalid JSON file",
+  "toast_settings_saved": "Settings saved ✓",
+
+  "remove": "Remove",
+
+  "label_open_target": "Open Target",
+  "label_keyboard_shortcut": "Keyboard Shortcut",
+  "shortcut_optional": "(optional)",
+  "placeholder_shortcut": "Click here, then press keys…",
+  "btn_add_url_row": "＋ Add another URL (group search)",
+
+  "modal_title_edit_engine": "Edit Engine",
+  "btn_save_changes": "💾 Save Changes",
+  "btn_cancel": "Cancel"
+}

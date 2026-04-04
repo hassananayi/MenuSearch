@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Google",
+    "url": "https://www.google.com/search?q=",
+    "logo": "/engines/google.webp"
+  },
+  {
+    "name": "Bing",
+    "url": "https://www.bing.com/search?q=",
+    "logo": "/engines/bing.webp"
+  },
+  {
+    "name": "DuckDuckGo",
+    "url": "https://duckduckgo.com/?q=",
+    "logo": "/engines/duckduckgo.webp"
+  },
+  {
+    "name": "Yahoo",
+    "url": "https://search.yahoo.com/search?p=",
+    "logo": "/engines/yahoo.webp"
+  },
+   {
+    "name": "Yandex",
+    "url": "https://yandex.com/search/?text=",
+    "logo": "/engines/yandex.webp"
+  },
+  {
+    "name": "YouTube",
+    "url": "https://www.youtube.com/results?search_query=",
+    "logo": "/engines/youtube.webp"
+  },
+  {
+    "name": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Special:Search?search=",
+    "logo": "/engines/wikipedia.webp"
+  },
+  {
+    "name": "Amazon",
+    "url": "https://www.amazon.com/s?k=",
+    "logo": "/engines/amazon.webp"
+  },
+  {
+    "name": "eBay",
+    "url": "https://www.ebay.com/sch/i.html?_nkw=",
+    "logo": "/engines/ebay.webp"
+  },
+    {
+    "name": "AliExpress",
+    "url": "https://www.aliexpress.com/wholesale?SearchText=",
+    "logo": "/engines/aliexpress.webp"
+  },
+  {
+    "name": "GitHub",
+    "url": "https://github.com/search?q=",
+    "logo": "/engines/github.webp"
+  },
+  {
+    "name": "Reddit",
+    "url": "https://www.reddit.com/search/?q=",
+    "logo": "/engines/reddit.webp"
+  },
+  {
+    "name": "IMDb",
+    "url": "https://www.imdb.com/find?q=",
+    "logo": "/engines/imdb.webp"
+  },
+  {
+    "name": "Twitter (X)",
+    "url": "https://twitter.com/search?q=",
+    "logo": "/engines/x.webp"
+  },
+  {
+    "name": "Pinterest",
+    "url": "https://www.pinterest.com/search/pins/?q=",
+    "logo": "/engines/pinterest.webp"
+  },
+  {
+    "name": "Google Images",
+    "url": "https://www.google.com/search?tbm=isch&q=",
+    "logo": "/engines/google-images.webp"
+  },
+  {
+    "name": "Google Maps",
+    "url": "https://www.google.com/maps/search/?api=1&query=",
+    "logo": "/engines/google-maps.webp"
+  },
+  {
+    "name": "Google News",
+    "url": "https://news.google.com/search?q=",
+    "logo": "/engines/google-news.webp"
+  },
+  {
+    "name": "Google Scholar",
+    "url": "https://scholar.google.com/scholar?q=",
+    "logo": "/engines/google-scholar.webp"
+  },
+   {
+    "name": "Yahoo Finance",
+    "url": "https://finance.yahoo.com/quote/",
+    "logo": "/engines/yahoo-finance.webp"
+  }
+ 
+
+]

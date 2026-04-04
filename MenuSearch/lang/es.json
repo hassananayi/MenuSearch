@@ -1,0 +1,59 @@
+{
+  "tab_engines": "⚙ Motores",
+  "tab_add": "＋ Añadir",
+  "tab_settings": "⚙ Ajustes",
+
+  "section_context_order": "Orden del menú contextual",
+  "btn_insert_separator": "＋ Insertar separador",
+
+  "label_engine_name": "Nombre del motor",
+  "placeholder_engine_name": "ej. Google",
+  "label_search_url": "URL de búsqueda",
+  "placeholder_search_url": "https://www.google.com/search?q=",
+  "btn_add_engine": "＋ Añadir motor",
+  "btn_from_library": "📚 Desde la biblioteca",
+
+  "export_desc": "Exporte su lista de motores como archivo <strong>.json</strong> para hacer una copia de seguridad o compartirla.",
+  "btn_export": "⬇ Exportar engines.json",
+  "import_desc": "Importe un archivo <strong>.json</strong> exportado previamente. Esto <strong>reemplazará</strong> su lista actual.",
+  "btn_import": "⬆ Importar desde JSON",
+
+  "settings_theme": "Tema",
+  "settings_theme_light": "Claro",
+  "settings_theme_dark": "Oscuro",
+  "settings_language": "Idioma",
+  "settings_import_export": "Importar / Exportar",
+  "settings_section_appearance": "Apariencia",
+  "settings_section_language": "Idioma & Región",
+
+  "library_title": "Biblioteca de motores",
+  "library_search_placeholder": "Buscar motores…",
+  "library_loading": "Cargando biblioteca…",
+  "library_no_results": "Sin resultados para",
+  "library_error": "No se pudo cargar la biblioteca.",
+  "btn_add": "Añadir",
+  "btn_added": "Añadido",
+
+  "empty_state": "Aún no hay motores.<br>Añada uno desde la pestaña Añadir.",
+  "separator_label": "── SEPARADOR ──",
+
+  "toast_fill_fields": "Rellene ambos campos",
+  "toast_engine_added": "Motor añadido ✓",
+  "toast_separator_added": "Separador añadido",
+  "toast_exported": "Exportado ✓",
+  "toast_imported": "motores importados ✓",
+  "toast_invalid_json": "Archivo JSON no válido",
+  "toast_settings_saved": "Ajustes guardados ✓",
+
+  "remove": "Eliminar",
+
+  "label_open_target": "Abrir en",
+  "label_keyboard_shortcut": "Atajo de teclado",
+  "shortcut_optional": "(opcional)",
+  "placeholder_shortcut": "Haga clic aquí y pulse las teclas…",
+  "btn_add_url_row": "＋ Añadir otra URL (búsqueda en grupo)",
+
+  "modal_title_edit_engine": "Editar motor",
+  "btn_save_changes": "💾 Guardar cambios",
+  "btn_cancel": "Cancelar"
+}
