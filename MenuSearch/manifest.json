@@ -9,7 +9,7 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "MenuSearch: Custom Search Engines in Your Context Menu"
+    "default_title": "MenuSearch: Search Anywhere in One Click"
   },
   "content_scripts": [
     {
