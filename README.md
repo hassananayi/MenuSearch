@@ -1,7 +1,29 @@
-# 🔍 MenuSearch — Search Anywhere in One Click
+<div align="center">
 
-Stop wasting time copying, pasting, and switching tabs.  
-**MenuSearch lets you search selected text instantly across all your favorite platforms — directly from the right-click menu.**
+<img src="images/logo.png" width="96" height="96" alt="MenuSearch Logo" />
+
+# MenuSearch
+
+**Search Anywhere in One Click**
+
+A browser extension for Chrome and Edge that lets you search selected text instantly across all your favorite platforms — directly from the right-click menu.
+
+[![Chrome Web Store](https://img.shields.io/badge/Chrome-Extension-4285F4?logo=googlechrome&logoColor=white)](https://chrome.google.com/webstore)
+[![Edge Add-ons](https://img.shields.io/badge/Edge-Add--on-0078D4?logo=microsoftedge&logoColor=white)](https://microsoftedge.microsoft.com/addons)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Manifest V3](https://img.shields.io/badge/Manifest-V3-blueviolet)](https://developer.chrome.com/docs/extensions/mv3/)
+
+</div>
+
+---
+## 📸 Screenshots
+
+![Screenshot 01](images/01.png)  
+![Screenshot 02](images/02.png)  
+![Screenshot 03](images/03.png)  
+![Screenshot 04](images/04.png)  
+![Screenshot 05](images/05.png)  
+![Screenshot 06](images/06.png)
 
 ---
 
@@ -35,17 +57,6 @@ Save time, reduce repetitive work, and boost your productivity.
 
 ---
 
-## 📸 Screenshots
-
-![Screenshot 01](images/01.png)  
-![Screenshot 02](images/02.png)  
-![Screenshot 03](images/03.png)  
-![Screenshot 04](images/04.png)  
-![Screenshot 05](images/05.png)  
-![Screenshot 06](images/06.png)
-
----
-
 ## 🧠 Real Use Cases
 
 - 👨‍💻 **Developers**: Search code across GitHub, StackOverflow, and docs simultaneously  
@@ -66,13 +77,11 @@ Save time, reduce repetitive work, and boost your productivity.
 ---
 ## 📦 Installation
 
-### ✅ Microsoft Edge Add‑ons Store  
-*(Link will be added when published)*
+### From the Web Store *(recommended)*
+- **Chrome:** [Chrome Web Store →](#) *(Link will be added when published)*
+- **Edge:** [Microsoft Edge Add-ons →](#) *(Link will be added when published)*
 
-### ✅ Chrome Web Store  
-*(Link will be added when published)*
-
-### ✅ Manual Installation (Developer Mode)
+### Manual Installation (Developer Mode)
 
 1. Download or clone this repository:  
    ```sh
