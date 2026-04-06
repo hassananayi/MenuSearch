@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="images/logo.png" width="96" height="96" alt="MenuSearch Logo" />
+<img src="images/icon.png" width="96" height="96" alt="MenuSearch Logo" />
 
 # MenuSearch
 
