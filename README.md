@@ -9,7 +9,7 @@
 A browser extension for Chrome and Edge that lets you search selected text instantly across all your favorite platforms — directly from the right-click menu.
 
 [![Chrome Web Store](https://img.shields.io/badge/Chrome-Extension-4285F4?logo=googlechrome&logoColor=white)](https://chrome.google.com/webstore)
-[![Edge Add-ons](https://img.shields.io/badge/Edge-Add--on-0078D4?logo=microsoftedge&logoColor=white)](https://microsoftedge.microsoft.com/addons)
+[![Edge Add-ons](https://img.shields.io/badge/Edge-Add--on-0078D4?logo=microsoftedge&logoColor=white)](https://microsoftedge.microsoft.com/addons/detail/menusearch-search-anywhe/deobjdclccahgllgpgdmjkfmchflmocj)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-blueviolet)](https://developer.chrome.com/docs/extensions/mv3/)
 
@@ -79,8 +79,8 @@ Save time, reduce repetitive work, and boost your productivity.
 
 ### From the Web Store *(recommended)*
 - **Chrome:** [Chrome Web Store →](#) *(Link will be added when published)*
-- **Edge:** [Microsoft Edge Add-ons →](#) *(Link will be added when published)*
-
+- **Edge:** [Microsoft Edge Add-ons →](https://microsoftedge.microsoft.com/addons/detail/menusearch-search-anywhe/deobjdclccahgllgpgdmjkfmchflmocj)
+  
 ### Manual Installation (Developer Mode)
 
 1. Download or clone this repository:  
