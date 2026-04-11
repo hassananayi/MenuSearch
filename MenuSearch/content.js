@@ -6,8 +6,6 @@
   window.__menuSearchLoaded = true;
 
   // Use keydown in CAPTURE phase so we intercept before the page.
-  // IMPORTANT: must be synchronous — do NOT make this async, or
-  // e.preventDefault() will be called too late (after the await).
   document.addEventListener("keydown", function (e) {
     // Ignore bare modifier keys
     if (["Control", "Alt", "Shift", "Meta"].includes(e.key)) return;
@@ -41,8 +39,8 @@
       type: "shortcut_search",
       engine,
       selectionText
-    }).catch(() => {}); // suppress "no listener" errors on extension reload
-  }, true); // capture phase
+    }).catch(() => {});
+  }, true);
 
   // ── Keep a local cache of engines so the keydown handler stays sync ──
   function refreshCache() {

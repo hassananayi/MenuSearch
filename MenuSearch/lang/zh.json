@@ -1,0 +1,73 @@
+{
+  "tab_engines": "<i class=\"bi bi-list\"></i> 搜索引擎",
+  "tab_add": "<i class=\"bi bi-plus\"></i> 添加",
+  "tab_settings": "<i class=\"bi bi-sliders\"></i> 设置",
+
+  "section_context_order": "右键菜单顺序（拖动排序）",
+  "btn_insert_separator": "<i class=\"bi bi-plus\"></i> 插入分隔符",
+
+  "label_engine_name": "引擎名称",
+  "placeholder_engine_name": "例如：Google",
+  "label_search_url": "搜索网址",
+  "label_search_url_with_placeholder": "搜索网址 — 使用 %s 作为选中文本",
+  "label_search_url_with_placeholder_short": "搜索网址 — 使用 %s",
+  "placeholder_search_url": "https://www.google.com/search?q=%s",
+  "btn_add_engine": "<i class=\"bi bi-plus\"></i> 添加引擎",
+  "btn_from_library": "<i class=\"bi bi-collection-fill\"></i> 从库中添加",
+
+  "info_how_it_works": "<i class=\"bi bi-info-circle-fill\"></i> <strong>工作原理：</strong>在 URL 中使用 <strong>%s</strong> 作为选中文本的插入位置。<br><strong>示例：</strong> <code>https://www.google.com/search?q=%s</code><br>当你在页面中选中 \"hello world\" 时，它会变为 <code>https://www.google.com/search?q=hello%20world</code>",
+  "info_how_it_works_short": "<i class=\"bi bi-info-circle-fill\"></i> 在需要插入选中文本的位置使用 <strong>%s</strong>。",
+
+  "export_desc": "将当前引擎列表导出为 <strong>.json</strong> 文件，用于备份或分享。",
+  "btn_export": "导出 engines.json",
+  "import_desc": "导入之前导出的 <strong>.json</strong> 文件，这将<strong>替换</strong>当前列表。",
+  "btn_import": "从 JSON 导入",
+
+  "settings_theme": "主题",
+  "settings_theme_light": "浅色",
+  "settings_theme_dark": "深色",
+  "settings_language": "语言",
+  "settings_import_export": "导入 / 导出",
+  "settings_section_appearance": "外观",
+  "settings_section_language": "语言与地区",
+
+  "library_title": "引擎库",
+  "library_search_placeholder": "搜索引擎…",
+  "library_loading": "正在加载库…",
+  "library_no_results": "没有结果：",
+  "library_error": "无法加载库。",
+  "btn_add": "添加",
+  "btn_added": "已添加",
+
+  "empty_state": "还没有引擎。添加一个吧！",
+  "separator_label": "分隔符",
+
+  "toast_fill_fields": "请填写所有字段",
+  "toast_engine_added": "已添加",
+  "toast_separator_added": "已添加分隔符",
+  "toast_exported": "已导出",
+  "toast_imported": "引擎已导入",
+  "toast_invalid_json": "无效的 JSON 文件",
+  "toast_settings_saved": "设置已保存",
+  "toast_missing_placeholder": "请在 URL 中添加 %s 作为搜索文本位置",
+  "toast_updated": "已更新",
+  "toast_order_saved": "顺序已保存",
+
+  "remove": "删除",
+  "edit": "编辑",
+  "clear_shortcut": "清除快捷键",
+
+  "label_open_target": "打开方式",
+  "label_keyboard_shortcut": "键盘快捷键",
+  "shortcut_optional": "（可选）",
+  "placeholder_shortcut": "点击这里，然后按下按键…",
+  "btn_add_url_row": "添加另一个 URL（组合搜索）",
+
+  "modal_title_edit_engine": "编辑引擎",
+  "btn_save_changes": "<i class=\"bi bi-floppy\"></i> 保存更改",
+  "btn_cancel": "取消",
+
+  "target_new_tab": "新标签页",
+  "target_same_tab": "当前标签页",
+  "shortcut_conflict": "快捷键已被占用："
+}

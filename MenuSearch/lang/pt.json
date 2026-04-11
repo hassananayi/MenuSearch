@@ -1,0 +1,73 @@
+{
+  "tab_engines": "<i class=\"bi bi-list\"></i> Motores",
+  "tab_add": "<i class=\"bi bi-plus\"></i> Adicionar",
+  "tab_settings": "<i class=\"bi bi-sliders\"></i> Configurações",
+
+  "section_context_order": "Ordem do menu de contexto (arraste para reordenar)",
+  "btn_insert_separator": "<i class=\"bi bi-plus\"></i> Inserir separador",
+
+  "label_engine_name": "Nome do motor",
+  "placeholder_engine_name": "ex: Google",
+  "label_search_url": "URL de pesquisa",
+  "label_search_url_with_placeholder": "URL de pesquisa — use %s para o texto selecionado",
+  "label_search_url_with_placeholder_short": "URL de pesquisa — use %s",
+  "placeholder_search_url": "https://www.google.com/search?q=%s",
+  "btn_add_engine": "<i class=\"bi bi-plus\"></i> Adicionar motor",
+  "btn_from_library": "<i class=\"bi bi-collection-fill\"></i> Da biblioteca",
+
+  "info_how_it_works": "<i class=\"bi bi-info-circle-fill\"></i> <strong>Como funciona:</strong> use <strong>%s</strong> no URL onde o texto selecionado deve ser inserido.<br><strong>Exemplo:</strong> <code>https://www.google.com/search?q=%s</code><br>Quando selecionas \"hello world\" numa página, torna-se <code>https://www.google.com/search?q=hello%20world</code>",
+  "info_how_it_works_short": "<i class=\"bi bi-info-circle-fill\"></i> Use <strong>%s</strong> onde o texto selecionado deve ser inserido.",
+
+  "export_desc": "Exporta a tua lista atual de motores como um ficheiro <strong>.json</strong> para backup ou partilha.",
+  "btn_export": "Exportar engines.json",
+  "import_desc": "Importa um ficheiro <strong>.json</strong> exportado anteriormente. Isto irá <strong>substituir</strong> a tua lista atual.",
+  "btn_import": "Importar de JSON",
+
+  "settings_theme": "Tema",
+  "settings_theme_light": "Claro",
+  "settings_theme_dark": "Escuro",
+  "settings_language": "Idioma",
+  "settings_import_export": "Importar / Exportar",
+  "settings_section_appearance": "Aparência",
+  "settings_section_language": "Idioma e região",
+
+  "library_title": "Biblioteca de motores",
+  "library_search_placeholder": "Pesquisar motores…",
+  "library_loading": "A carregar biblioteca…",
+  "library_no_results": "Sem resultados para",
+  "library_error": "Não foi possível carregar a biblioteca.",
+  "btn_add": "Adicionar",
+  "btn_added": "Adicionado",
+
+  "empty_state": "Ainda não há motores. Adiciona um!",
+  "separator_label": "SEPARADOR",
+
+  "toast_fill_fields": "Preenche todos os campos",
+  "toast_engine_added": "adicionado",
+  "toast_separator_added": "Separador adicionado",
+  "toast_exported": "Exportado",
+  "toast_imported": "motores importados",
+  "toast_invalid_json": "Ficheiro JSON inválido",
+  "toast_settings_saved": "Definições guardadas",
+  "toast_missing_placeholder": "Adiciona %s no URL onde deve ser colocado o texto de pesquisa",
+  "toast_updated": "atualizado",
+  "toast_order_saved": "Ordem guardada",
+
+  "remove": "Remover",
+  "edit": "Editar",
+  "clear_shortcut": "Limpar atalho",
+
+  "label_open_target": "Abrir destino",
+  "label_keyboard_shortcut": "Atalho de teclado",
+  "shortcut_optional": "(opcional)",
+  "placeholder_shortcut": "Clica aqui e prime as teclas…",
+  "btn_add_url_row": "Adicionar outro URL (pesquisa em grupo)",
+
+  "modal_title_edit_engine": "Editar motor",
+  "btn_save_changes": "<i class=\"bi bi-floppy\"></i> Guardar alterações",
+  "btn_cancel": "Cancelar",
+
+  "target_new_tab": "Nova aba",
+  "target_same_tab": "Mesma aba",
+  "shortcut_conflict": "Atalho usado por"
+}

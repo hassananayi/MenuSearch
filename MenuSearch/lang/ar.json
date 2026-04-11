@@ -1,0 +1,73 @@
+{
+  "tab_engines": "<i class=\"bi bi-list\"></i> المحركات",
+  "tab_add": "<i class=\"bi bi-plus\"></i> إضافة",
+  "tab_settings": "<i class=\"bi bi-sliders\"></i> الإعدادات",
+
+  "section_context_order": "ترتيب قائمة النقر (اسحب لإعادة الترتيب)",
+  "btn_insert_separator": "<i class=\"bi bi-plus\"></i> إدراج فاصل",
+
+  "label_engine_name": "اسم المحرك",
+  "placeholder_engine_name": "مثال: Google",
+  "label_search_url": "رابط البحث",
+  "label_search_url_with_placeholder": "رابط البحث — استخدم %s للنص المحدد",
+  "label_search_url_with_placeholder_short": "رابط البحث — استخدم %s",
+  "placeholder_search_url": "https://www.google.com/search?q=%s",
+  "btn_add_engine": "<i class=\"bi bi-plus\"></i> إضافة محرك",
+  "btn_from_library": "<i class=\"bi bi-collection-fill\"></i> من المكتبة",
+
+  "info_how_it_works": "<i class=\"bi bi-info-circle-fill\"></i> <strong>كيف يعمل:</strong> استخدم <strong>%s</strong> في الرابط حيث تريد إدراج النص المحدد.<br><strong>مثال:</strong> <code>https://www.google.com/search?q=%s</code><br>عند تحديد \"hello world\" في صفحة، يصبح <code>https://www.google.com/search?q=hello%20world</code>",
+  "info_how_it_works_short": "<i class=\"bi bi-info-circle-fill\"></i> استخدم <strong>%s</strong> حيث يجب إدراج النص المحدد.",
+
+  "export_desc": "قم بتصدير قائمة المحركات الحالية كملف <strong>.json</strong> لنسخها احتياطيًا أو مشاركتها.",
+  "btn_export": "تصدير engines.json",
+  "import_desc": "استيراد ملف <strong>.json</strong> تم تصديره مسبقًا. سيؤدي ذلك إلى <strong>استبدال</strong> القائمة الحالية.",
+  "btn_import": "استيراد من JSON",
+
+  "settings_theme": "المظهر",
+  "settings_theme_light": "فاتح",
+  "settings_theme_dark": "داكن",
+  "settings_language": "اللغة",
+  "settings_import_export": "استيراد / تصدير",
+  "settings_section_appearance": "المظهر",
+  "settings_section_language": "اللغة والمنطقة",
+
+  "library_title": "مكتبة المحركات",
+  "library_search_placeholder": "ابحث عن المحركات…",
+  "library_loading": "جارٍ تحميل المكتبة…",
+  "library_no_results": "لا توجد نتائج لـ",
+  "library_error": "تعذر تحميل المكتبة.",
+  "btn_add": "إضافة",
+  "btn_added": "تمت الإضافة",
+
+  "empty_state": "لا توجد محركات بعد. أضف واحدًا!",
+  "separator_label": "فاصل",
+
+  "toast_fill_fields": "يرجى تعبئة جميع الحقول",
+  "toast_engine_added": "تمت الإضافة",
+  "toast_separator_added": "تمت إضافة فاصل",
+  "toast_exported": "تم التصدير",
+  "toast_imported": "تم استيراد المحركات",
+  "toast_invalid_json": "ملف JSON غير صالح",
+  "toast_settings_saved": "تم حفظ الإعدادات",
+  "toast_missing_placeholder": "أضف %s في الرابط حيث يوجد نص البحث",
+  "toast_updated": "تم التحديث",
+  "toast_order_saved": "تم حفظ الترتيب",
+
+  "remove": "إزالة",
+  "edit": "تعديل",
+  "clear_shortcut": "مسح الاختصار",
+
+  "label_open_target": "طريقة الفتح",
+  "label_keyboard_shortcut": "اختصار لوحة المفاتيح",
+  "shortcut_optional": "(اختياري)",
+  "placeholder_shortcut": "انقر هنا ثم اضغط المفاتيح…",
+  "btn_add_url_row": "إضافة رابط آخر (بحث متعدد)",
+
+  "modal_title_edit_engine": "تعديل المحرك",
+  "btn_save_changes": "<i class=\"bi bi-floppy\"></i> حفظ التغييرات",
+  "btn_cancel": "إلغاء",
+
+  "target_new_tab": "علامة تبويب جديدة",
+  "target_same_tab": "نفس علامة التبويب",
+  "shortcut_conflict": "الاختصار مستخدم من قبل"
+}

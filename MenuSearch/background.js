@@ -8,14 +8,21 @@ chrome.runtime.onInstalled.addListener(() => {
     if (!data.engines) {
       chrome.storage.local.set({
         engines: [
-          { name: "Google", urls: ["https://www.google.com/search?q="], url: "https://www.google.com/search?q=", logo: "/engines/google.webp", target: "new_tab", shortcut: null },
-          { name: "Bing",   urls: ["https://www.bing.com/search?q="],   url: "https://www.bing.com/search?q=",   logo: "/engines/bing.webp",   target: "new_tab", shortcut: null }
+          { name: "Google", urls: ["https://www.google.com/search?q=%s"], url: "https://www.google.com/search?q=%s", logo: "/engines/google.webp", target: "new_tab", shortcut: null },
+          { name: "Bing",   urls: ["https://www.bing.com/search?q=%s"],   url: "https://www.bing.com/search?q=%s",   logo: "/engines/bing.webp",   target: "new_tab", shortcut: null }
         ]
       });
     }
   });
   refreshMenu();
 });
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Replace %s placeholder with query text
+// ─────────────────────────────────────────────────────────────────────────────
+function replacePlaceholder(url, query) {
+  return url.replace(/%s/g, query);
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Rebuild context menu
@@ -34,7 +41,7 @@ function refreshMenu() {
           chrome.contextMenus.create({
             id: "engine_" + index,
             parentId: PARENT_ID,
-            title: isGroup ? "📁 " + engine.name + " — " + engine.urls.length + " URLs": engine.name ,
+            title: isGroup ? "📁 " + engine.name + " — " + engine.urls.length + " URLs": engine.name,
             contexts: ["selection"]
           });
         }
@@ -78,10 +85,11 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     const tabId    = tab ? tab.id : undefined;
 
     urls.forEach((url, i) => {
+      const finalUrl = replacePlaceholder(url, query);
       if (i === 0) {
-        openUrl(url + query, target, tabId);
+        openUrl(finalUrl, target, tabId);
       } else {
-        chrome.tabs.create({ url: url + query });
+        chrome.tabs.create({ url: finalUrl });
       }
     });
   });
@@ -100,19 +108,19 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   const query    = encodeURIComponent(text);
   const target   = engine.target || "new_tab";
   const urls     = (engine.urls && engine.urls.length) ? engine.urls : [engine.url];
-  // sender.tab is reliably set because the message comes from a content script
   const tabId    = sender.tab ? sender.tab.id : undefined;
 
   urls.forEach((url, i) => {
+    const finalUrl = replacePlaceholder(url, query);
     if (i === 0) {
-      openUrl(url + query, target, tabId);
+      openUrl(finalUrl, target, tabId);
     } else {
-      chrome.tabs.create({ url: url + query });
+      chrome.tabs.create({ url: finalUrl });
     }
   });
 
   sendResponse({ ok: true });
-  return true; // keep channel open for async sendResponse
+  return true;
 });
 
 // ─────────────────────────────────────────────────────────────────────────────

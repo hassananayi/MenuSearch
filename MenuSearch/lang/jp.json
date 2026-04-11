@@ -1,0 +1,73 @@
+{
+  "tab_engines": "<i class=\"bi bi-list\"></i> 検索エンジン",
+  "tab_add": "<i class=\"bi bi-plus\"></i> 追加",
+  "tab_settings": "<i class=\"bi bi-sliders\"></i> 設定",
+
+  "section_context_order": "コンテキストメニューの順序（ドラッグで並べ替え）",
+  "btn_insert_separator": "<i class=\"bi bi-plus\"></i> 区切り線を挿入",
+
+  "label_engine_name": "エンジン名",
+  "placeholder_engine_name": "例: Google",
+  "label_search_url": "検索URL",
+  "label_search_url_with_placeholder": "検索URL — %sで選択テキストを使用",
+  "label_search_url_with_placeholder_short": "検索URL — %sを使用",
+  "placeholder_search_url": "https://www.google.com/search?q=%s",
+  "btn_add_engine": "<i class=\"bi bi-plus\"></i> エンジンを追加",
+  "btn_from_library": "<i class=\"bi bi-collection-fill\"></i> ライブラリから",
+
+  "info_how_it_works": "<i class=\"bi bi-info-circle-fill\"></i> <strong>仕組み:</strong> URL内の検索したい位置に<strong>%s</strong>を使用してください。<br><strong>例:</strong> <code>https://www.google.com/search?q=%s</code><br>ページ上で \"hello world\" を選択すると <code>https://www.google.com/search?q=hello%20world</code> になります",
+  "info_how_it_works_short": "<i class=\"bi bi-info-circle-fill\"></i> 選択テキストを入れる場所に<strong>%s</strong>を使用してください。",
+
+  "export_desc": "現在のエンジンリストを<strong>.json</strong>ファイルとしてエクスポートし、バックアップや共有ができます。",
+  "btn_export": "engines.jsonをエクスポート",
+  "import_desc": "以前エクスポートした<strong>.json</strong>ファイルをインポートします。現在のリストは<strong>置き換えられます</strong>。",
+  "btn_import": "JSONからインポート",
+
+  "settings_theme": "テーマ",
+  "settings_theme_light": "ライト",
+  "settings_theme_dark": "ダーク",
+  "settings_language": "言語",
+  "settings_import_export": "インポート / エクスポート",
+  "settings_section_appearance": "外観",
+  "settings_section_language": "言語と地域",
+
+  "library_title": "エンジンライブラリ",
+  "library_search_placeholder": "エンジンを検索…",
+  "library_loading": "読み込み中…",
+  "library_no_results": "の結果はありません",
+  "library_error": "ライブラリを読み込めませんでした。",
+  "btn_add": "追加",
+  "btn_added": "追加済み",
+
+  "empty_state": "エンジンがありません。追加してください！",
+  "separator_label": "区切り線",
+
+  "toast_fill_fields": "すべての項目を入力してください",
+  "toast_engine_added": "追加しました",
+  "toast_separator_added": "区切り線を追加しました",
+  "toast_exported": "エクスポートしました",
+  "toast_imported": "エンジンをインポートしました",
+  "toast_invalid_json": "無効なJSONファイルです",
+  "toast_settings_saved": "設定を保存しました",
+  "toast_missing_placeholder": "URL内の検索位置に%sを追加してください",
+  "toast_updated": "更新しました",
+  "toast_order_saved": "順序を保存しました",
+
+  "remove": "削除",
+  "edit": "編集",
+  "clear_shortcut": "ショートカットをクリア",
+
+  "label_open_target": "開く先",
+  "label_keyboard_shortcut": "キーボードショートカット",
+  "shortcut_optional": "（任意）",
+  "placeholder_shortcut": "ここをクリックしてキーを押してください…",
+  "btn_add_url_row": "URLを追加（グループ検索）",
+
+  "modal_title_edit_engine": "エンジンを編集",
+  "btn_save_changes": "<i class=\"bi bi-floppy\"></i> 変更を保存",
+  "btn_cancel": "キャンセル",
+
+  "target_new_tab": "新しいタブ",
+  "target_same_tab": "同じタブ",
+  "shortcut_conflict": "このショートカットは使用中です"
+}

@@ -1,22 +1,27 @@
 {
-  "tab_engines": "⚙ Engines",
-  "tab_add": "＋ Add",
-  "tab_settings": "⚙ Settings",
+  "tab_engines": "<i class=\"bi bi-list\"></i> Engines",
+  "tab_add": "<i class=\"bi bi-plus\"></i> Add",
+  "tab_settings": "<i class=\"bi bi-sliders\"></i> Settings",
 
-  "section_context_order": "Context Menu Order",
-  "btn_insert_separator": "＋ Insert Separator",
+  "section_context_order": "Context Menu Order (Drag to reorder)",
+  "btn_insert_separator": "<i class=\"bi bi-plus\"></i> Insert Separator",
 
   "label_engine_name": "Engine Name",
   "placeholder_engine_name": "e.g. Google",
   "label_search_url": "Search URL",
-  "placeholder_search_url": "https://www.google.com/search?q=",
-  "btn_add_engine": "＋ Add Engine",
-  "btn_from_library": "📚 From Library",
+  "label_search_url_with_placeholder": "Search URL(s) — use %s for selected text",
+  "label_search_url_with_placeholder_short": "Search URL(s) — use %s",
+  "placeholder_search_url": "https://www.google.com/search?q=%s",
+  "btn_add_engine": "<i class=\"bi bi-plus\"></i> Add Engine",
+  "btn_from_library": "<i class=\"bi bi-collection-fill\"></i> From Library",
+
+  "info_how_it_works": "<i class=\"bi bi-info-circle-fill\"></i> <strong>How it works:</strong> Use <strong>%s</strong> in your URL where the selected text should be inserted.<br><strong>Example:</strong> <code>https://www.google.com/search?q=%s</code><br>When you select \"hello world\" on a page, it becomes <code>https://www.google.com/search?q=hello%20world</code>",
+  "info_how_it_works_short": "<i class=\"bi bi-info-circle-fill\"></i> Use <strong>%s</strong> where the selected text should go.",
 
   "export_desc": "Export your current engine list as a <strong>.json</strong> file to back it up or share it.",
-  "btn_export": "⬇ Export engines.json",
+  "btn_export": "Export engines.json",
   "import_desc": "Import a previously exported <strong>.json</strong> file. This will <strong>replace</strong> your current list.",
-  "btn_import": "⬆ Import from JSON",
+  "btn_import": "Import from JSON",
 
   "settings_theme": "Theme",
   "settings_theme_light": "Light",
@@ -34,26 +39,35 @@
   "btn_add": "Add",
   "btn_added": "Added",
 
-  "empty_state": "No engines yet.<br>Add one from the Add tab.",
-  "separator_label": "── SEPARATOR ──",
+  "empty_state": "No engines yet. Add one!",
+  "separator_label": "SEPARATOR",
 
-  "toast_fill_fields": "Fill in both fields",
-  "toast_engine_added": "Engine added ✓",
+  "toast_fill_fields": "Please fill all fields",
+  "toast_engine_added": "added",
   "toast_separator_added": "Separator added",
-  "toast_exported": "Exported ✓",
-  "toast_imported": "engines imported ✓",
+  "toast_exported": "Exported",
+  "toast_imported": "engines imported",
   "toast_invalid_json": "Invalid JSON file",
-  "toast_settings_saved": "Settings saved ✓",
+  "toast_settings_saved": "Settings saved",
+  "toast_missing_placeholder": "Add %s to URL where search text goes",
+  "toast_updated": "updated",
+  "toast_order_saved": "Order saved",
 
   "remove": "Remove",
+  "edit": "Edit",
+  "clear_shortcut": "Clear shortcut",
 
   "label_open_target": "Open Target",
   "label_keyboard_shortcut": "Keyboard Shortcut",
   "shortcut_optional": "(optional)",
   "placeholder_shortcut": "Click here, then press keys…",
-  "btn_add_url_row": "＋ Add another URL (group search)",
+  "btn_add_url_row": "Add another URL (group search)",
 
   "modal_title_edit_engine": "Edit Engine",
-  "btn_save_changes": "💾 Save Changes",
-  "btn_cancel": "Cancel"
+  "btn_save_changes": "<i class=\"bi bi-floppy\"></i> Save Changes",
+  "btn_cancel": "Cancel",
+
+  "target_new_tab": "New Tab",
+  "target_same_tab": "Same Tab",
+  "shortcut_conflict": "Shortcut used by"
 }

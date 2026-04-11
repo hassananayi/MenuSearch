@@ -1,22 +1,27 @@
 {
-  "tab_engines": "⚙ Motores",
-  "tab_add": "＋ Añadir",
-  "tab_settings": "⚙ Ajustes",
+  "tab_engines": "<i class=\"bi bi-list\"></i> Motores",
+  "tab_add": "<i class=\"bi bi-plus\"></i> Añadir",
+  "tab_settings": "<i class=\"bi bi-sliders\"></i> Ajustes",
 
-  "section_context_order": "Orden del menú contextual",
-  "btn_insert_separator": "＋ Insertar separador",
+  "section_context_order": "Orden del menú contextual (arrastrar para reordenar)",
+  "btn_insert_separator": "<i class=\"bi bi-plus\"></i> Insertar separador",
 
   "label_engine_name": "Nombre del motor",
-  "placeholder_engine_name": "ej. Google",
+  "placeholder_engine_name": "ej: Google",
   "label_search_url": "URL de búsqueda",
-  "placeholder_search_url": "https://www.google.com/search?q=",
-  "btn_add_engine": "＋ Añadir motor",
-  "btn_from_library": "📚 Desde la biblioteca",
+  "label_search_url_with_placeholder": "URL de búsqueda — usa %s para el texto seleccionado",
+  "label_search_url_with_placeholder_short": "URL de búsqueda — usa %s",
+  "placeholder_search_url": "https://www.google.com/search?q=%s",
+  "btn_add_engine": "<i class=\"bi bi-plus\"></i> Añadir motor",
+  "btn_from_library": "<i class=\"bi bi-collection-fill\"></i> Desde la biblioteca",
 
-  "export_desc": "Exporte su lista de motores como archivo <strong>.json</strong> para hacer una copia de seguridad o compartirla.",
-  "btn_export": "⬇ Exportar engines.json",
-  "import_desc": "Importe un archivo <strong>.json</strong> exportado previamente. Esto <strong>reemplazará</strong> su lista actual.",
-  "btn_import": "⬆ Importar desde JSON",
+  "info_how_it_works": "<i class=\"bi bi-info-circle-fill\"></i> <strong>Cómo funciona:</strong> usa <strong>%s</strong> en tu URL donde quieras insertar el texto seleccionado.<br><strong>Ejemplo:</strong> <code>https://www.google.com/search?q=%s</code><br>Cuando seleccionas \"hello world\" en una página, se convierte en <code>https://www.google.com/search?q=hello%20world</code>",
+  "info_how_it_works_short": "<i class=\"bi bi-info-circle-fill\"></i> Usa <strong>%s</strong> donde debe ir el texto seleccionado.",
+
+  "export_desc": "Exporta tu lista actual de motores como un archivo <strong>.json</strong> para guardarlo o compartirlo.",
+  "btn_export": "Exportar engines.json",
+  "import_desc": "Importa un archivo <strong>.json</strong> exportado previamente. Esto <strong>reemplazará</strong> tu lista actual.",
+  "btn_import": "Importar desde JSON",
 
   "settings_theme": "Tema",
   "settings_theme_light": "Claro",
@@ -24,7 +29,7 @@
   "settings_language": "Idioma",
   "settings_import_export": "Importar / Exportar",
   "settings_section_appearance": "Apariencia",
-  "settings_section_language": "Idioma & Región",
+  "settings_section_language": "Idioma y región",
 
   "library_title": "Biblioteca de motores",
   "library_search_placeholder": "Buscar motores…",
@@ -34,26 +39,35 @@
   "btn_add": "Añadir",
   "btn_added": "Añadido",
 
-  "empty_state": "Aún no hay motores.<br>Añada uno desde la pestaña Añadir.",
-  "separator_label": "── SEPARADOR ──",
+  "empty_state": "Aún no hay motores. ¡Añade uno!",
+  "separator_label": "SEPARADOR",
 
-  "toast_fill_fields": "Rellene ambos campos",
-  "toast_engine_added": "Motor añadido ✓",
+  "toast_fill_fields": "Por favor completa todos los campos",
+  "toast_engine_added": "añadido",
   "toast_separator_added": "Separador añadido",
-  "toast_exported": "Exportado ✓",
-  "toast_imported": "motores importados ✓",
-  "toast_invalid_json": "Archivo JSON no válido",
-  "toast_settings_saved": "Ajustes guardados ✓",
+  "toast_exported": "Exportado",
+  "toast_imported": "motores importados",
+  "toast_invalid_json": "Archivo JSON inválido",
+  "toast_settings_saved": "Ajustes guardados",
+  "toast_missing_placeholder": "Añade %s en la URL donde va el texto de búsqueda",
+  "toast_updated": "actualizado",
+  "toast_order_saved": "Orden guardado",
 
   "remove": "Eliminar",
+  "edit": "Editar",
+  "clear_shortcut": "Borrar atajo",
 
-  "label_open_target": "Abrir en",
+  "label_open_target": "Destino de apertura",
   "label_keyboard_shortcut": "Atajo de teclado",
   "shortcut_optional": "(opcional)",
-  "placeholder_shortcut": "Haga clic aquí y pulse las teclas…",
-  "btn_add_url_row": "＋ Añadir otra URL (búsqueda en grupo)",
+  "placeholder_shortcut": "Haz clic aquí y presiona teclas…",
+  "btn_add_url_row": "Añadir otra URL (búsqueda en grupo)",
 
   "modal_title_edit_engine": "Editar motor",
-  "btn_save_changes": "💾 Guardar cambios",
-  "btn_cancel": "Cancelar"
+  "btn_save_changes": "<i class=\"bi bi-floppy\"></i> Guardar cambios",
+  "btn_cancel": "Cancelar",
+
+  "target_new_tab": "Nueva pestaña",
+  "target_same_tab": "Misma pestaña",
+  "shortcut_conflict": "Atajo usado por"
 }

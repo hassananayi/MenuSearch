@@ -1,0 +1,73 @@
+{
+  "tab_engines": "<i class=\"bi bi-list\"></i> Suchmaschinen",
+  "tab_add": "<i class=\"bi bi-plus\"></i> Hinzufügen",
+  "tab_settings": "<i class=\"bi bi-sliders\"></i> Einstellungen",
+
+  "section_context_order": "Kontextmenü-Reihenfolge (zum Sortieren ziehen)",
+  "btn_insert_separator": "<i class=\"bi bi-plus\"></i> Trennlinie einfügen",
+
+  "label_engine_name": "Name der Suchmaschine",
+  "placeholder_engine_name": "z. B. Google",
+  "label_search_url": "Such-URL",
+  "label_search_url_with_placeholder": "Such-URL — %s für markierten Text verwenden",
+  "label_search_url_with_placeholder_short": "Such-URL — %s verwenden",
+  "placeholder_search_url": "https://www.google.com/search?q=%s",
+  "btn_add_engine": "<i class=\"bi bi-plus\"></i> Suchmaschine hinzufügen",
+  "btn_from_library": "<i class=\"bi bi-collection-fill\"></i> Aus der Bibliothek",
+
+  "info_how_it_works": "<i class=\"bi bi-info-circle-fill\"></i> <strong>So funktioniert es:</strong> Verwende <strong>%s</strong> in deiner URL an der Stelle, an der der markierte Text eingefügt werden soll.<br><strong>Beispiel:</strong> <code>https://www.google.com/search?q=%s</code><br>Wenn du \"hello world\" auf einer Seite markierst, wird daraus <code>https://www.google.com/search?q=hello%20world</code>",
+  "info_how_it_works_short": "<i class=\"bi bi-info-circle-fill\"></i> Verwende <strong>%s</strong> an der Stelle, an der der markierte Text eingefügt werden soll.",
+
+  "export_desc": "Exportiere deine aktuelle Liste von Suchmaschinen als <strong>.json</strong>-Datei zum Sichern oder Teilen.",
+  "btn_export": "Engines.json exportieren",
+  "import_desc": "Importiere eine zuvor exportierte <strong>.json</strong>-Datei. Dadurch wird deine aktuelle Liste <strong>ersetzt</strong>.",
+  "btn_import": "Aus JSON importieren",
+
+  "settings_theme": "Design",
+  "settings_theme_light": "Hell",
+  "settings_theme_dark": "Dunkel",
+  "settings_language": "Sprache",
+  "settings_import_export": "Import / Export",
+  "settings_section_appearance": "Erscheinungsbild",
+  "settings_section_language": "Sprache & Region",
+
+  "library_title": "Suchmaschinen-Bibliothek",
+  "library_search_placeholder": "Suchmaschinen suchen…",
+  "library_loading": "Bibliothek wird geladen…",
+  "library_no_results": "Keine Ergebnisse für",
+  "library_error": "Bibliothek konnte nicht geladen werden.",
+  "btn_add": "Hinzufügen",
+  "btn_added": "Hinzugefügt",
+
+  "empty_state": "Noch keine Suchmaschinen. Füge eine hinzu!",
+  "separator_label": "TRENNLINIE",
+
+  "toast_fill_fields": "Bitte alle Felder ausfüllen",
+  "toast_engine_added": "hinzugefügt",
+  "toast_separator_added": "Trennlinie hinzugefügt",
+  "toast_exported": "Exportiert",
+  "toast_imported": "Suchmaschinen importiert",
+  "toast_invalid_json": "Ungültige JSON-Datei",
+  "toast_settings_saved": "Einstellungen gespeichert",
+  "toast_missing_placeholder": "Füge %s in die URL ein, wo der Suchtext eingefügt werden soll",
+  "toast_updated": "aktualisiert",
+  "toast_order_saved": "Reihenfolge gespeichert",
+
+  "remove": "Entfernen",
+  "edit": "Bearbeiten",
+  "clear_shortcut": "Tastenkürzel löschen",
+
+  "label_open_target": "Ziel öffnen",
+  "label_keyboard_shortcut": "Tastenkombination",
+  "shortcut_optional": "(optional)",
+  "placeholder_shortcut": "Hier klicken und Tasten drücken…",
+  "btn_add_url_row": "Weitere URL hinzufügen (Gruppensuche)",
+
+  "modal_title_edit_engine": "Suchmaschine bearbeiten",
+  "btn_save_changes": "<i class=\"bi bi-floppy\"></i> Änderungen speichern",
+  "btn_cancel": "Abbrechen",
+
+  "target_new_tab": "Neuer Tab",
+  "target_same_tab": "Gleicher Tab",
+  "shortcut_conflict": "Tastenkürzel wird verwendet von"
+}

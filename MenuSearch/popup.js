@@ -5,49 +5,72 @@ let i18nStrings = {};
 const LANG_URL  = lang => chrome.runtime.getURL(`lang/${lang}.json`);
 
 async function loadLang(lang) {
-  let loaded = false;
   try {
     const res = await fetch(LANG_URL(lang));
-    if (res.ok) { i18nStrings = await res.json(); loaded = true; }
-  } catch {}
-
-  // Fallback to English if the requested lang file is missing
-  if (!loaded && lang !== "en") {
-    try {
-      const res = await fetch(LANG_URL("en"));
-      if (res.ok) i18nStrings = await res.json();
-    } catch { i18nStrings = {}; }
+    if (res.ok) {
+      i18nStrings = await res.json();
+    } else {
+      throw new Error(`HTTP ${res.status}`);
+    }
+  } catch (err) {
+    console.warn(`Failed to load language ${lang}:`, err);
+    // Fallback to English
+    if (lang !== "en") {
+      try {
+        const fallbackRes = await fetch(LANG_URL("en"));
+        if (fallbackRes.ok) {
+          i18nStrings = await fallbackRes.json();
+        }
+      } catch (fallbackErr) {
+        console.error("Failed to load fallback language");
+        i18nStrings = {};
+      }
+    } else {
+      i18nStrings = {};
+    }
   }
 
-  // Always apply even if strings are empty (will keep original text)
   applyI18n();
-  // Re-apply target labels in the dropdowns using translated strings
   applyTargetOptions();
 }
 
-/** Translate a key → string, with an optional hard-coded fallback */
 function t(key, fallback) {
-  return i18nStrings[key] || fallback || key;
+  const translation = i18nStrings[key];
+  if (translation === undefined || translation === "") {
+    return fallback || key;
+  }
+  return translation;
 }
 
-/** Apply all data-i18n / data-i18n-html / data-i18n-placeholder attributes */
 function applyI18n() {
+  // Text content translation
   document.querySelectorAll("[data-i18n]").forEach(el => {
-    const v = t(el.dataset.i18n);
-    if (v !== el.dataset.i18n) el.textContent = v; // only replace if key exists
+    const key = el.dataset.i18n;
+    const translation = t(key);
+   el.textContent = translation;
   });
+  
+  // HTML content translation
   document.querySelectorAll("[data-i18n-html]").forEach(el => {
-    const v = t(el.dataset.i18nHtml);
-    if (v !== el.dataset.i18nHtml) el.innerHTML = v;
+    const key = el.dataset.i18nHtml;
+    const translation = t(key);
+    if (translation !== key && translation !== "") {
+      el.innerHTML = translation;
+    }
   });
+  
+  // Placeholder translation
   document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-    const v = t(el.dataset.i18nPlaceholder);
-    if (v !== el.dataset.i18nPlaceholder) el.placeholder = v;
+    const key = el.dataset.i18nPlaceholder;
+    const translation = t(key);
+    if (translation !== key && translation !== "") {
+      el.placeholder = translation;
+    }
   });
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Settings  (theme + lang)
+// Settings (theme + lang)
 // ─────────────────────────────────────────────────────────────────────────────
 let currentSettings = { theme: "light", lang: "en" };
 
@@ -67,7 +90,6 @@ function applyTheme(theme) {
   );
 }
 
-// Theme buttons
 document.querySelectorAll(".seg-btn").forEach(btn => {
   btn.addEventListener("click", async () => {
     const theme = btn.dataset.themeVal;
@@ -78,7 +100,6 @@ document.querySelectorAll(".seg-btn").forEach(btn => {
   });
 });
 
-// Language selector
 const langSelect = document.getElementById("langSelect");
 langSelect.addEventListener("change", async () => {
   currentSettings.lang = langSelect.value;
@@ -166,20 +187,24 @@ function targetIcon(v) {
   return v === "same_tab" ? "↩" : "🗗";
 }
 
-/** Re-render <option> text in both target selects with current i18n strings */
 function applyTargetOptions() {
   document.querySelectorAll(".field-select[id$='TargetSelect'], #targetSelect").forEach(sel => {
     sel.querySelectorAll("option").forEach(opt => {
-      if (opt.value === "new_tab")  opt.textContent = "🗗 " + t("target_new_tab",  "New Tab");
-      if (opt.value === "same_tab") opt.textContent = "↩ " + t("target_same_tab", "Same Tab");
+      const key = opt.value === "new_tab" ? "target_new_tab" : "target_same_tab";
+      const translated = t(key);
+      const icon = opt.value === "new_tab" ? "🗗 " : "↩ ";
+      if (translated !== key) {
+        opt.textContent = icon + translated;
+      }
     });
   });
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Render engine list
+// Render engine list with SortableJS
 // ─────────────────────────────────────────────────────────────────────────────
 const engineList = document.getElementById("engineList");
+let sortableInstance = null;
 
 async function loadEngines() {
   const engines = await getEngines();
@@ -187,24 +212,25 @@ async function loadEngines() {
 
   if (!engines.length) {
     engineList.innerHTML = `<div class="empty-state">
-      <div class="icon">🔍</div>
+      <i class="bi bi-search"></i>
       ${t("empty_state", "No engines yet. Add one!")}
     </div>`;
+    if (sortableInstance) sortableInstance.destroy();
+    sortableInstance = null;
     return;
   }
 
   engines.forEach((engine, index) => {
     const div = document.createElement("div");
 
-    // ── Separator ──
     if (engine.separator) {
       div.className   = "engine-item is-separator";
-      div.dataset.index = index;
+      div.setAttribute("data-id", index);
       div.innerHTML   = `
-        <span class="drag-handle">⠿</span>
+        <span class="drag-handle"><i class="bi bi-grip-vertical"></i></span>
         <span class="separator-label">─── ${t("separator_label", "separator")} ───</span>
         <div class="engine-actions">
-          <button class="icon-btn del" data-index="${index}" title="${t("remove","Remove")}">✕</button>
+          <button class="icon-btn del" data-index="${index}" title="${t("remove","Remove")}"><i class="bi bi-trash3"></i></button>
         </div>`;
       div.querySelector(".del").addEventListener("click", e => {
         e.stopPropagation();
@@ -214,41 +240,41 @@ async function loadEngines() {
       return;
     }
 
-    // ── Normal / Group engine ──
     const isGroup = Array.isArray(engine.urls) && engine.urls.length > 1;
     div.className   = "engine-item" + (isGroup ? " is-group" : "");
-    div.dataset.index = index;
+    div.setAttribute("data-id", index);
 
     const logoHtml = isGroup
-      ? `<span style="font-size:17px;flex-shrink:0;">📁</span>`
+      ? `<span style="font-size:17px;flex-shrink:0;"><i class="bi bi-folder"></i></span>`
       : `<img class="engine-logo" src="${escHtml(engine.logo || "engines/default.webp")}" alt="" onerror="this.src='engines/default.webp'">`;
 
     const primaryUrl = isGroup ? engine.urls[0] : (engine.url || "");
+    const displayUrl = primaryUrl.includes("%s") ? primaryUrl : primaryUrl + "%s";
 
     let badges = "";
     if (isGroup) {
-      badges += `<span class="engine-badge badge-group">📁 ${engine.urls.length} URLs</span>`;
+      badges += `<span class="engine-badge badge-group"><i class="bi bi-files"></i> ${engine.urls.length} URLs</span>`;
     }
     if (engine.target && engine.target !== "new_tab") {
       badges += `<span class="engine-badge badge-target">${targetIcon(engine.target)} ${targetLabel(engine.target)}</span>`;
     }
     if (engine.shortcut) {
-      badges += `<span class="engine-badge badge-shortcut">⌨ ${escHtml(engine.shortcut)}</span>`;
+      badges += `<span class="engine-badge badge-shortcut"><i class="bi bi-keyboard"></i> ${escHtml(engine.shortcut)}</span>`;
     }
 
     div.innerHTML = `
-      <span class="drag-handle">⠿</span>
+      <span class="drag-handle"><i class="bi bi-grip-vertical"></i></span>
       ${logoHtml}
       <div class="engine-info">
         <div class="engine-name">${escHtml(engine.name)}</div>
         <div class="engine-meta">
-          <span class="engine-url">${escHtml(primaryUrl)}</span>
+          <span class="engine-url">${escHtml(displayUrl)}</span>
           ${badges}
         </div>
       </div>
       <div class="engine-actions">
-        <button class="icon-btn edit" data-index="${index}" title="${t("edit","Edit")}">✏</button>
-        <button class="icon-btn del"  data-index="${index}" title="${t("remove","Remove")}">✕</button>
+        <button class="icon-btn edit" data-index="${index}" title="${t("edit","Edit")}"><i class="bi bi-pencil"></i></button>
+        <button class="icon-btn del"  data-index="${index}" title="${t("remove","Remove")}"><i class="bi bi-trash3"></i></button>
       </div>`;
 
     div.querySelector(".edit").addEventListener("click", e => {
@@ -263,11 +289,30 @@ async function loadEngines() {
     engineList.appendChild(div);
   });
 
-  initPointerDrag();
+  // Initialize SortableJS
+  if (sortableInstance) sortableInstance.destroy();
+  sortableInstance = new Sortable(engineList, {
+    handle: ".drag-handle",
+    animation: 200,
+    ghostClass: "sortable-ghost",
+    dragClass: "sortable-drag",
+    onEnd: async function() {
+      const newOrder = [];
+      document.querySelectorAll(".engine-item").forEach(el => {
+        const originalIndex = parseInt(el.getAttribute("data-id"));
+        if (!isNaN(originalIndex)) newOrder.push(originalIndex);
+      });
+      const engines = await getEngines();
+      const reordered = newOrder.map(i => engines[i]);
+      await setEngines(reordered);
+      await loadEngines();
+      showToast(t("toast_order_saved", "Order saved"), "success");
+    }
+  });
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// URL-row builder (shared by Add + Edit panels)
+// URL-row builder
 // ─────────────────────────────────────────────────────────────────────────────
 function makeUrlRow(value, container) {
   const row     = document.createElement("div");
@@ -276,16 +321,15 @@ function makeUrlRow(value, container) {
   const inp        = document.createElement("input");
   inp.className    = "input";
   inp.type         = "text";
-  inp.placeholder  = "https://example.com/search?q=";
+  inp.placeholder  = "https://example.com/search?q=%s";
   inp.setAttribute("data-url-input", "");
   inp.value        = value || "";
   row.appendChild(inp);
 
-  // Remove button — shown only when container has > 1 row
   const rm        = document.createElement("button");
   rm.className    = "url-row-remove";
   rm.title        = t("remove_url", "Remove URL");
-  rm.textContent  = "✕";
+  rm.innerHTML    = '<i class="bi bi-x-circle"></i>';
   rm.style.display = "none";
   rm.addEventListener("click", () => {
     row.remove();
@@ -319,7 +363,6 @@ function attachShortcutCapture(inputEl, clearBtn) {
     if (!["Control","Alt","Shift","Meta"].includes(e.key)) {
       parts.push(e.key.length === 1 ? e.key.toUpperCase() : e.key);
     }
-    // Require at least one modifier + one non-modifier key
     const modCount = [e.ctrlKey, e.altKey, e.shiftKey, e.metaKey].filter(Boolean).length;
     if (modCount > 0 && parts.length > modCount) {
       inputEl.value = parts.join("+");
@@ -362,6 +405,13 @@ async function addEngine() {
   if (!name) { showToast(t("toast_fill_fields","Please fill all fields"), "error"); return; }
   if (!urls.length) { showToast(t("toast_fill_fields","Please fill all fields"), "error"); return; }
 
+  // Validate URLs contain %s
+  const missingPlaceholder = urls.find(u => !u.includes("%s"));
+  if (missingPlaceholder) {
+    showToast(t("toast_missing_placeholder", "Add %s to URL where search text goes"), "error");
+    return;
+  }
+
   const target   = targetSelect.value;
   const shortcut = shortcutInput.value.trim() || null;
   const isGroup  = urls.length > 1;
@@ -379,16 +429,16 @@ async function addEngine() {
   engines.push({ name, urls, url: urls[0], logo, target, shortcut });
   await setEngines(engines);
 
-  // Reset form
   nameInput.value        = "";
   urlRows.innerHTML      = "";
   const firstRow         = makeUrlRow("", urlRows);
   urlRows.appendChild(firstRow);
+  syncRemoveBtns(urlRows);
   targetSelect.value     = "new_tab";
   shortcutInput.value    = "";
   shortcutClear.classList.remove("visible");
 
-  loadEngines();
+  await loadEngines();
   showToast(`${name} ${t("toast_engine_added","added")}`, "success");
 }
 
@@ -396,14 +446,14 @@ async function removeEngine(index) {
   const engines = await getEngines();
   engines.splice(index, 1);
   await setEngines(engines);
-  loadEngines();
+  await loadEngines();
 }
 
 async function addSeparator() {
   const engines = await getEngines();
   engines.push({ separator: true });
   await setEngines(engines);
-  loadEngines();
+  await loadEngines();
   showToast(t("toast_separator_added","Separator added"), "success");
 }
 
@@ -482,6 +532,12 @@ saveEditBtn.addEventListener("click", async () => {
   if (!name) { showToast(t("toast_fill_fields","Please fill all fields"), "error"); return; }
   if (!urls.length) { showToast(t("toast_fill_fields","Please fill all fields"), "error"); return; }
 
+  const missingPlaceholder = urls.find(u => !u.includes("%s"));
+  if (missingPlaceholder) {
+    showToast(t("toast_missing_placeholder", "Add %s to URL where search text goes"), "error");
+    return;
+  }
+
   const target   = editTargetSelect.value;
   const shortcut = editShortcutInput.value.trim() || null;
   const isGroup  = urls.length > 1;
@@ -507,72 +563,9 @@ saveEditBtn.addEventListener("click", async () => {
   engines[editingIndex] = { ...existing, name, urls, url: urls[0], logo, target, shortcut };
   await setEngines(engines);
   closeEditModal();
-  loadEngines();
+  await loadEngines();
   showToast(`${name} ${t("toast_updated","updated")}`, "success");
 });
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Drag & Drop reorder
-// ─────────────────────────────────────────────────────────────────────────────
-function initPointerDrag() {
-  engineList.querySelectorAll(".engine-item").forEach(item => {
-    const handle = item.querySelector(".drag-handle");
-    if (!handle) return;
-    handle.addEventListener("pointerdown", e => { e.preventDefault(); startDrag(e, item); });
-  });
-}
-
-function startDrag(e, dragEl) {
-  const rect    = dragEl.getBoundingClientRect();
-  const offsetY = e.clientY - rect.top;
-
-  const ghost = dragEl.cloneNode(true);
-  Object.assign(ghost.style, {
-    position: "fixed", left: rect.left + "px", top: rect.top + "px",
-    width: rect.width + "px", height: rect.height + "px",
-    zIndex: "10000", pointerEvents: "none", margin: "0",
-    boxShadow: "0 8px 24px rgba(0,0,0,.3)", borderRadius: "7px",
-    opacity: ".92", background: "var(--surface2)", border: "1px solid var(--accent)"
-  });
-  document.body.appendChild(ghost);
-  dragEl.style.opacity = "0.3";
-
-  let currentIndex = parseInt(dragEl.dataset.index);
-
-  function onMove(ev) {
-    ghost.style.top = (ev.clientY - offsetY) + "px";
-    let targetIndex = currentIndex;
-    [...engineList.children].forEach(child => {
-      if (child === dragEl) return;
-      const r = child.getBoundingClientRect();
-      if (ev.clientY > r.top + r.height / 2) targetIndex = parseInt(child.dataset.index);
-    });
-    if (targetIndex !== currentIndex) {
-      const targetEl = engineList.querySelector(`[data-index="${targetIndex}"]`);
-      if (targetEl) {
-        const mid = targetEl.getBoundingClientRect();
-        engineList.insertBefore(dragEl,
-          e.clientY > mid.top + mid.height / 2 ? targetEl.nextSibling : targetEl
-        );
-        currentIndex = targetIndex;
-      }
-    }
-  }
-
-  async function onUp() {
-    document.removeEventListener("pointermove", onMove);
-    document.removeEventListener("pointerup",   onUp);
-    ghost.remove();
-    dragEl.style.opacity = "";
-    const newOrder = [...engineList.querySelectorAll(".engine-item")].map(el => parseInt(el.dataset.index));
-    const engines  = await getEngines();
-    await setEngines(newOrder.map(i => engines[i]));
-    loadEngines();
-  }
-
-  document.addEventListener("pointermove", onMove);
-  document.addEventListener("pointerup",   onUp);
-}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Library Modal
@@ -646,14 +639,15 @@ function renderLibraryGrid() {
     if (!isAdded) {
       card.querySelector(".lib-add-btn").addEventListener("click", async () => {
         const engines = await getEngines();
+        const urlWithPlaceholder = engine.url.includes("%s") ? engine.url : engine.url + "%s";
         engines.push({
-          name: engine.name, urls: [engine.url], url: engine.url,
+          name: engine.name, urls: [urlWithPlaceholder], url: urlWithPlaceholder,
           logo: engine.logo || "engines/default.webp", target: "new_tab", shortcut: null
         });
         await setEngines(engines);
         addedNames.add(engine.name);
         renderLibraryGrid();
-        loadEngines();
+        await loadEngines();
         showToast(`${engine.name} ${t("toast_engine_added","added")}`, "success");
       });
     }
@@ -686,7 +680,7 @@ document.getElementById("importFileInput").addEventListener("change", e => {
       const data = JSON.parse(ev.target.result);
       if (!Array.isArray(data)) throw new Error();
       await setEngines(data);
-      loadEngines();
+      await loadEngines();
       showToast(data.length + " " + t("toast_imported","engines imported"), "success");
     } catch {
       showToast(t("toast_invalid_json","Invalid JSON file"), "error");
@@ -705,12 +699,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   applyTheme(currentSettings.theme);
   langSelect.value = currentSettings.lang || "en";
 
-  // loadLang calls applyI18n() internally after loading
   await loadLang(currentSettings.lang || "en");
 
-  // Seed the Add-tab URL rows
   urlRows.innerHTML = "";
   urlRows.appendChild(makeUrlRow("", urlRows));
+  syncRemoveBtns(urlRows);
 
   await loadEngines();
 });
