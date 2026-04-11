@@ -44,10 +44,10 @@ Save time, reduce repetitive work, and boost your productivity.
 ---
 
 ## 🚀 Key Features
-
-- 🔗 **Group Search**: Group URLs to search multiple sites in a single action
+- 🔗 **%s Placeholder System**: Use `%s` anywhere in your search URL to control exactly where your selected text is inserted
+- 📁 **Group Search**: Group URLs to search multiple sites in a single action
 - ⌨️ **Keyboard Shortcuts**: Launch searches instantly without using the mouse  
-- ➕ **Add Custom Engines**: Add unlimited custom search engines  
+- ➕ **Add Custom Engines**: Add unlimited custom search engines
 - 🎯 **Target Options**: Open searches in a new tab or the same tab 
 - ✏️ **Edit Saved Engines**: Modify any saved engine with a single clic 
 - 🧩 **Organize Easily**: Drag & drop to reorder engines, insert separators  
