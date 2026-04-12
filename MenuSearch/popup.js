@@ -43,6 +43,10 @@ function t(key, fallback) {
 }
 
 function applyI18n() {
+
+  // Set document direction based on language (e.g. rtl for Arabic, Hebrew)
+  document.documentElement.dir = ["ar", "he"].includes(currentSettings.lang) ? "rtl" : "ltr";
+
   // Text content translation
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.dataset.i18n;

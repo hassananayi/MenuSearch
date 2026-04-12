@@ -57,11 +57,13 @@ chrome.storage.onChanged.addListener((changes, area) => {
 // ─────────────────────────────────────────────────────────────────────────────
 // Open URL — handles new_tab, same_tab
 // ─────────────────────────────────────────────────────────────────────────────
-function openUrl(url, target, sourceTabId) {
+function openUrl(url, target, sourceTabId, sourceTabIndex) {
   if (target === "same_tab" && sourceTabId != null) {
     chrome.tabs.update(sourceTabId, { url });
   } else {
-    chrome.tabs.create({ url });
+    const props = { url };
+    if (sourceTabIndex != null) props.index = sourceTabIndex + 1;
+    chrome.tabs.create(props);
   }
 }
 
@@ -84,12 +86,17 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     const urls     = (engine.urls && engine.urls.length) ? engine.urls : [engine.url];
     const tabId    = tab ? tab.id : undefined;
 
+    const tabIndex = tab ? tab.index : undefined;
     urls.forEach((url, i) => {
       const finalUrl = replacePlaceholder(url, query);
       if (i === 0) {
-        openUrl(finalUrl, target, tabId);
+        openUrl(finalUrl, target, tabId, tabIndex);
       } else {
-        chrome.tabs.create({ url: finalUrl });
+        chrome.tabs.create({
+          url: finalUrl,
+          active: false,
+          index: tabIndex != null ? tabIndex + 1 + i : undefined
+        });
       }
     });
   });
@@ -110,12 +117,17 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   const urls     = (engine.urls && engine.urls.length) ? engine.urls : [engine.url];
   const tabId    = sender.tab ? sender.tab.id : undefined;
 
+  const tabIndex = sender.tab ? sender.tab.index : undefined;
   urls.forEach((url, i) => {
     const finalUrl = replacePlaceholder(url, query);
     if (i === 0) {
-      openUrl(finalUrl, target, tabId);
+      openUrl(finalUrl, target, tabId, tabIndex);
     } else {
-      chrome.tabs.create({ url: finalUrl });
+      chrome.tabs.create({
+        url: finalUrl,
+        active: false,
+        index: tabIndex != null ? tabIndex + 1 + i : undefined
+      });
     }
   });
 
