@@ -42,6 +42,12 @@
   "empty_state": "No engines yet. Add one!",
   "separator_label": "SEPARATOR",
 
+   "enable": "Enable",
+  "disable": "Disable",
+  "badge_disabled": "Disabled",
+  "toast_enabled": "enabled",
+  "toast_disabled": "disabled",
+
   "toast_fill_fields": "Please fill all fields",
   "toast_engine_added": "added",
   "toast_separator_added": "Separator added",
