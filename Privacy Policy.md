@@ -38,8 +38,6 @@ To add the “Search with…” right‑click menu.
 ### **storage**
 To save your custom engines and settings locally.
 
-### **tabs**
-To open a new tab when performing a search.
 
 No other permissions are used.
 
