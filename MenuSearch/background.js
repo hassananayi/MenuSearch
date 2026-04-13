@@ -8,8 +8,8 @@ chrome.runtime.onInstalled.addListener(() => {
     if (!data.engines) {
       chrome.storage.local.set({
         engines: [
-          { name: "Google", urls: ["https://www.google.com/search?q=%s"], url: "https://www.google.com/search?q=%s", logo: "/engines/google.webp", target: "new_tab", shortcut: null },
-          { name: "Bing",   urls: ["https://www.bing.com/search?q=%s"],   url: "https://www.bing.com/search?q=%s",   logo: "/engines/bing.webp",   target: "new_tab", shortcut: null }
+          { name: "Google", urls: ["https://www.google.com/search?q=%s"], url: "https://www.google.com/search?q=%s", logo: "/engines/google.webp", target: "new_tab", shortcut: null, disabled: false },
+          { name: "Bing",   urls: ["https://www.bing.com/search?q=%s"],   url: "https://www.bing.com/search?q=%s",   logo: "/engines/bing.webp",   target: "new_tab", shortcut: null, disabled: false }
         ]
       });
     }
@@ -25,7 +25,7 @@ function replacePlaceholder(url, query) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Rebuild context menu
+// Rebuild context menu — skips disabled engines
 // ─────────────────────────────────────────────────────────────────────────────
 function refreshMenu() {
   chrome.contextMenus.removeAll(() => {
@@ -34,6 +34,9 @@ function refreshMenu() {
     chrome.storage.local.get(["engines"], data => {
       let sepCount = 0;
       (data.engines || []).forEach((engine, index) => {
+        // Skip disabled engines — they should not appear in the context menu
+        if (engine.disabled) return;
+
         if (engine.separator) {
           chrome.contextMenus.create({ id: "sep_" + sepCount++, parentId: PARENT_ID, type: "separator", contexts: ["selection"] });
         } else {
@@ -79,7 +82,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 
     const index  = parseInt(String(id).split("_")[1]);
     const engine = (data.engines || [])[index];
-    if (!engine || engine.separator) return;
+    if (!engine || engine.separator || engine.disabled) return;
 
     const query    = encodeURIComponent(info.selectionText);
     const target   = engine.target || "new_tab";
@@ -107,6 +110,9 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 // ─────────────────────────────────────────────────────────────────────────────
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.type !== "shortcut_search" || !msg.engine) return false;
+
+  // Ignore shortcuts for disabled engines
+  if (msg.engine.disabled) { sendResponse({ ok: false, reason: "disabled" }); return true; }
 
   const text = (msg.selectionText || "").trim();
   if (!text) { sendResponse({ ok: false, reason: "no_selection" }); return true; }

@@ -244,8 +244,9 @@ async function loadEngines() {
       return;
     }
 
-    const isGroup = Array.isArray(engine.urls) && engine.urls.length > 1;
-    div.className   = "engine-item" + (isGroup ? " is-group" : "");
+    const isGroup    = Array.isArray(engine.urls) && engine.urls.length > 1;
+    const isDisabled = !!engine.disabled;
+    div.className = "engine-item" + (isGroup ? " is-group" : "") + (isDisabled ? " is-disabled" : "");
     div.setAttribute("data-id", index);
 
     const logoHtml = isGroup
@@ -256,6 +257,9 @@ async function loadEngines() {
     const displayUrl = primaryUrl.includes("%s") ? primaryUrl : primaryUrl + "%s";
 
     let badges = "";
+    if (isDisabled) {
+      badges += `<span class="engine-badge badge-disabled"><i class="bi bi-slash-circle"></i> ${t("badge_disabled", "Disabled")}</span>`;
+    }
     if (isGroup) {
       badges += `<span class="engine-badge badge-group"><i class="bi bi-files"></i> ${engine.urls.length} URLs</span>`;
     }
@@ -265,6 +269,12 @@ async function loadEngines() {
     if (engine.shortcut) {
       badges += `<span class="engine-badge badge-shortcut"><i class="bi bi-keyboard"></i> ${escHtml(engine.shortcut)}</span>`;
     }
+
+    const toggleTitle    = isDisabled ? t("enable", "Enable") : t("disable", "Disable");
+    const toggleIcon     = isDisabled ? "bi-toggle-off" : "bi-toggle-on";
+    const toggleStateCls = isDisabled ? "is-off" : "is-on";
+    const editTitle      = t("edit", "Edit");
+    const removeTitle    = t("remove", "Remove");
 
     div.innerHTML = `
       <span class="drag-handle"><i class="bi bi-grip-vertical"></i></span>
@@ -277,9 +287,22 @@ async function loadEngines() {
         </div>
       </div>
       <div class="engine-actions">
-        <button class="icon-btn edit" data-index="${index}" title="${t("edit","Edit")}"><i class="bi bi-pencil"></i></button>
-        <button class="icon-btn del"  data-index="${index}" title="${t("remove","Remove")}"><i class="bi bi-trash3"></i></button>
+        <button class="icon-btn toggle ${toggleStateCls}" data-index="${index}" title="${toggleTitle}"><i class="bi ${toggleIcon}"></i></button>
+        <button class="icon-btn edit" data-index="${index}" title="${editTitle}"><i class="bi bi-pencil"></i></button>
+        <button class="icon-btn del" data-index="${index}" title="${removeTitle}"><i class="bi bi-trash3"></i></button>
       </div>`;
+
+    div.querySelector(".toggle").addEventListener("click", async e => {
+      e.stopPropagation();
+      const idx     = parseInt(e.currentTarget.dataset.index);
+      const engines = await getEngines();
+      engines[idx].disabled = !engines[idx].disabled;
+      await setEngines(engines);
+      await loadEngines();
+      const engineName = engines[idx].name;
+      const isNowDisabled = engines[idx].disabled;
+      showToast(engineName + " " + (isNowDisabled ? t("toast_disabled","disabled") : t("toast_enabled","enabled")), isNowDisabled ? "" : "success");
+    });
 
     div.querySelector(".edit").addEventListener("click", e => {
       e.stopPropagation();

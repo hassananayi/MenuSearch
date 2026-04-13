@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "MenuSearch: Search Anywhere in One Click",
-  "version": "1.1",
+  "version": "1.2.0",
   "description": "Add custom search engines and use them directly from the context menu.",
-  "permissions": ["contextMenus", "storage", "tabs"],
+  "permissions": ["contextMenus", "storage"],
   "background": {
     "service_worker": "background.js"
   },
