@@ -43,6 +43,21 @@ No other permissions are used.
 
 ---
 
+
+## ✅ Content Script Behavior
+
+MenuSearch injects a small script (`content.js`) into web pages to detect keyboard shortcuts and read your text selection when you trigger a search.
+
+This script:
+- **Only detects** keyboard shortcuts that include a modifier key (Ctrl, Alt, Shift, or Meta) — bare keypresses are completely ignored
+- **Only reads** text you have actively selected on the page at the moment you press the shortcut
+- **Does not** read, scan, copy, or store any page content, form inputs, or passwords
+- **Does not** transmit any data to any external server — selected text is only passed to your browser to open a search URL
+- **Only runs once per page** — a guard flag (`window.__menuSearchLoaded`) prevents it from loading more than once
+- **Keeps a local cache** of your configured shortcuts from `chrome.storage.local` purely to match keypresses without async delays — this data never leaves your browser
+
+---
+
 ## ✅ Third‑Party Services
 
 The extension does **not** send data to third parties.  
