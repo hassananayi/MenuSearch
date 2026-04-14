@@ -107,6 +107,10 @@ Save time, reduce repetitive work, and boost your productivity.
 Pull requests are welcome!  
 Add new engines, improve UI, or translate the extension.
 
+## 👍 Thanks
+
+A big thank you to everyone who reported issues and shared ideas — your feedback truly shapes this extension. Special shoutout to @ExorcistF1 for the valuable suggestions and insights.
+
 ---
 
 ## 📄 License
